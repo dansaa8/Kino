@@ -6,7 +6,7 @@ import {
   barBistAncs,
 } from "./anchors.js";
 
-const folderDir = "/LuleNorthernLightsCinema/pages/";
+// const folderDir = "/LuleNorthernLightsCinema/pages/";
 // Only pass along folderDir if the html-files are in another directory than the calling document.
 const rep = document.querySelector("#rep");
 const repDrop = document.querySelector("#rep-dropdown");
@@ -34,7 +34,7 @@ function appendAnchors(btn, dropDown, anchors) {
     a.innerHTML = anchors[i][0];
 
     if (anchors[i][1] != "hrefLink" && anchors[i][1] != "") {
-      a.setAttribute("href", folderDir + anchors[i][1]);
+      a.setAttribute("href", anchors[i][1]);
     }
     dropDown.append(a);
   }
