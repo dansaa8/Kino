@@ -1,11 +1,5 @@
 import express from 'express';
 import { loadMovie, loadMovies } from './js/movies.js';
-import * as url from 'url';
-import path from 'path';
-const __filename = url.fileURLToPath(import.meta.url);
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
-
-console.log(__dirname);
 
 const app = express();
 
@@ -82,9 +76,7 @@ app.get('/movies/:movieId', async (req, res) => {
 //   }
 // });
 
-//första parametern är url, andra parametern är pathen där de statiska filerna ligger.
-// app.use(express.static(__dirname + '/public'));
-// app.use('/public', express.static(path.join(__dirname, '/public')));
+
 app.use('/public', express.static('./public'));
 app.use('/pages', express.static('./pages'));
 app.use('/js', express.static('./js'));
