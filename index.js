@@ -48,7 +48,7 @@ app.get('/premiarfredagar', async (req, res) => {
 });
 
 //första parametern är url, andra parametern är pathen där de statiska filerna ligger.
-app.use('/static', express.static('./static'));
+app.use('/public', express.static('./public'));
 app.use('/pages', express.static('./pages'));
 app.use('/js', express.static('./js'));
 app.listen(5080);
