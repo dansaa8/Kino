@@ -9,7 +9,7 @@
     <div class="picture-container">
       <% if (movies.length > 0) { %>
         <% movies.forEach(movie => { %>
-           <img src="<%= movie.attributes.image.url %>" class="cards">
+           <img src="<%= movie.image.url %>" class="cards">
           <%}) %>
           <% } else { %>
           <h2>Det finns inga filmer tillgängliga...</h2>
