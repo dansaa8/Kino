@@ -3,12 +3,23 @@
   <%- include('./partials/head.ejs') %>
 
   <body>
-    <%- include('./partials/header.ejs') %> 
-    <%- include('./partials/secnav.ejs') %>
-    <div class="picture-container"></div>
+    <%- include('./partials/header.ejs') %> <%- include('./partials/secnav.ejs')
+    %>
+
+    <div class="picture-container">
+      <% if (movies.length > 0) { %>
+        <% movies.forEach(movie => { %>
+           <img src="<%= movie.attributes.image.url %>" class="cards">
+          <%}) %>
+          <% } else { %>
+          <h2>Det finns inga filmer tillgängliga...</h2>
+        <% } %>
+    </div>
+
     <div class="modal-container">
       <div class="cinema-modal"></div>
     </div>
+
     <%- include('./partials/footer.ejs') %>
   </body>
 </html>
