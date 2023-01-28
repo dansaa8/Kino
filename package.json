@@ -4,8 +4,8 @@
   "description": "Biograf i Luleå",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --no-source-map src/main.scss static/main.css",
-    "watch": "sass --no-source-map --watch src/main.scss static/main.css",
+    "sass": "sass --no-source-map src/main.scss public/main.css",
+    "watch": "sass --no-source-map --watch src/main.scss public/main.css",
     "start": "nodemon ."
   },
   "repository": {
