@@ -15,8 +15,8 @@ app.use(express.static('static'));
 
 // Main navigation routes
 app.get('/', async (req, res) => {
-  let movies = await loadMovies();
-  movies = movies.map(movie => movie.attributes); 
+  const movies = await loadMovies();
+  // movies = movies.map(movie => movie.attributes); 
   res.render('index', {title: 'Lule Northern Lights Cinema', movies});
 });
 app.get('/oppettider', async (req, res) => {
@@ -59,7 +59,6 @@ app.get('/movies/:movieId', async (req, res) => {
   let movie = await loadMovie(req.params.movieId);
   if (movie) {
     movie = movie.attributes;
-    console.log(movie);
     res.render('movie', {title: movie.title, movie });
   } else {
     res.status(404).render('404');
