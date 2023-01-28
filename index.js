@@ -1,8 +1,13 @@
 import express from 'express';
-import fs from 'fs/promises';
+import { loadMovie, loadMovies } from './js/movies.js';
 
 const app = express();
 
+// app.engine("ejs", engine({
+//   helpers: {
+//     markdown: md => marked(md),
+//   },
+// }));
 app.set('view engine', 'ejs');
 
 app.use(express.static('static'));
@@ -10,7 +15,9 @@ app.use(express.static('static'));
 
 // Main navigation routes
 app.get('/', async (req, res) => {
-  res.render('index', {title: 'Lule Northern Lights Cinema'});
+  const movies = await loadMovies();
+
+  res.render('index', {title: 'Lule Northern Lights Cinema', movies});
 });
 app.get('/oppettider', async (req, res) => {
   res.render('openingHours', {title: 'Öppettider'});
