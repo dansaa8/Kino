@@ -9,8 +9,8 @@
     <div class="picture-container">
       <% if (movies.length > 0) { %>
         <% movies.forEach(movie => { %>
-          
-          <a class="cards" id=" <%= movie.id %> ><img src="<%= movie.attributes.image.url %>""></a>
+            
+          <a href='/movies/<%= movie.id %>''> ><img class="cards" src="<%= movie.attributes.image.url %>""></a>
           <%}) %>
           <% } else { %>
           <h2>Det finns inga filmer tillgängliga...</h2>
