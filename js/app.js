@@ -1,7 +1,9 @@
 import express from 'express';
 import { loadMovie, loadMovies } from './movies.js';
+import MarkdownIt from "markdown-it";
 
 const app = express();
+const markDown = new MarkdownIt();
 
 app.set('view engine', 'ejs');
 
@@ -11,7 +13,6 @@ app.use(express.static('static'));
 // Main navigation routes
 app.get('/', async (req, res) => {
   const movies = await loadMovies();
-  console.log(movies);
   res.render('index', {title: 'Lule Northern Lights Cinema', movies});
 });
 app.get('/oppettider', async (req, res) => {
@@ -52,7 +53,8 @@ app.get('/premiarfredagar', async (req, res) => {
 // Click on movie
 app.get('/movies/:movieId', async (req, res) => {
   const movie = await loadMovie(req.params.movieId);
-  if (movie) {
+  if (movie != null) {
+    movie.intro = markDown.render(movie.intro);
     res.render('movie', {title: movie.title, movie });
   } else {
     res.status(404).render('404', {title: 404});
