@@ -853,8 +853,8 @@ main {
   border-radius: 15px;
   max-width: 450px;
 }
-.movieInfo div {
-  font-size: 2.5em;
+.movieInfo p {
+  font-size: 2.3em;
 }
 
 .notFound h1 {
