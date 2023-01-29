@@ -61,7 +61,7 @@ app.get('/movies/:movieId', async (req, res) => {
     movie = movie.attributes;
     res.render('movie', {title: movie.title, movie });
   } else {
-    res.status(404).render('404');
+    res.status(404).render('404', {title: 404});
   }
 });
 
@@ -77,6 +77,6 @@ app.get('/movies/:movieId', async (req, res) => {
 
 
 app.use('/public', express.static('./public'));
-app.use('/pages', express.static('./pages'));
-app.use('/js', express.static('./js'));
+// app.use('/pages', express.static('./pages'));
+// app.use('/js', express.static('./js'));
 app.listen(5080);

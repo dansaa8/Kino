@@ -10,12 +10,17 @@
   }
 
   .cards {
+    display: block;
     width: 14.1em;
     margin: 0 auto;
 
     @media screen and (max-width: $screen-breakpoint) {
       max-width: 7em;
       height: auto;
+    }
+
+    img {
+      max-width: 100%;
     }
   }
 }
